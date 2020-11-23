@@ -24,7 +24,11 @@
 ** If tokenizers are to be allowed to call sqlite3_*() functions, then
 ** we will need a way to register the API consistently.
 */
+#if __has_include(<sqlite3.h>)
 #import <sqlite3.h>
+#else
+#import "sqlite3.h"	#import "sqlite3.h"
+#endif
 
 /*
 ** Structures used by the tokenizer interface. When a new tokenizer
